@@ -1,3 +1,8 @@
+# Assignment 2: Big oh notation
+# Student: Luke Erlewein
+# Professor: Dr. Denton Bobeldyk
+# Class: CIS 263 Summer 2025
+
 import time
 import math
 
