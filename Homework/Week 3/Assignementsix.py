@@ -9,11 +9,6 @@ TableSize = 10001
 ListSize = 500
 HashMod = 300
 
-# Second hash function for double hashing
-def h2(x):
-    return 9973 - (x % 9973)
-
-
 random.seed(616)
 InsertList = [random.randint(1, 100000) for _ in range(ListSize)]
 
@@ -48,6 +43,11 @@ def quadraticProbing(c1=1, c2=2):
 
     return numCollide
 
+
+# Second hash function for double hashing
+def h2(x):
+    return 9973 - (x % 9973)
+
 def doubleHash():
     hashTable = [None] * TableSize
     numCollide = 0
@@ -80,7 +80,7 @@ def modifiedLinearProbing():
 
     return numCollide
 
-# Run all strategies
+
 linear = linearProbing()
 quadratic = quadraticProbing()
 double = doubleHash()
