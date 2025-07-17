@@ -516,7 +516,8 @@ Tree *rbDeleteFixup(Tree *root, Tree *x, Tree *xParent)
             Tree *w = xParent->right;
             if (w && w->color == RED)
             {
-                printf("Delete Case 1\n");
+                printf("Delete Case 1: Left Rotation and Recolor\n");
+                //sibling is red. 
                 w->color = BLACK;
                 xParent->color = RED;
                 root = leftRotate(root, xParent);
@@ -525,7 +526,8 @@ Tree *rbDeleteFixup(Tree *root, Tree *x, Tree *xParent)
             if ((w->left == NULL || w->left->color == BLACK) &&
                 (w->right == NULL || w->right->color == BLACK))
                 {
-                printf("Delete Case 2\n");
+                // parent is black and both childred are black.
+                printf("Delete Case 2: Recoloring\n");
                 w->color = RED;
                 x = xParent;
                 xParent = x->parent;
@@ -534,13 +536,13 @@ Tree *rbDeleteFixup(Tree *root, Tree *x, Tree *xParent)
             {
                 if (w->right == NULL || w->right->color == BLACK)
                 {
-                    printf("Delete Case 3\n");
+                    printf("Delete Case 3: Right Rotation and Recolor\n");
                     if (w->left != NULL) w->left->color = BLACK;
                     w->color = RED;
                     root = rightRotate(root, w);
                     w = xParent->right;
                 }
-                printf("Delete Case 4\n");
+                printf("Delete Case 4: Left Rotation and Recolor\n");
                 w->color = xParent->color;
                 xParent->color = BLACK;
                 if (w->right != NULL) w->right->color = BLACK;
@@ -555,7 +557,7 @@ Tree *rbDeleteFixup(Tree *root, Tree *x, Tree *xParent)
             Tree *w = xParent->left;
             if (w && w->color == RED)
             {
-                printf("Delete Case 1\n");
+                printf("Delete Case 1: Right Rotation and Recolor\n");
                 w->color = BLACK;
                 xParent->color = RED;
                 root = rightRotate(root, xParent);
@@ -564,7 +566,7 @@ Tree *rbDeleteFixup(Tree *root, Tree *x, Tree *xParent)
             if ((w->left == NULL || w->left->color == BLACK) &&
                 (w->right == NULL || w->right->color == BLACK))
                 {
-                printf("Delete Case 2\n");
+                printf("Delete Case 2: Recoloring\n");
                 w->color = RED;
                 x = xParent;
                 xParent = x->parent;
@@ -573,13 +575,13 @@ Tree *rbDeleteFixup(Tree *root, Tree *x, Tree *xParent)
             {
                 if (w->left == NULL || w->left->color == BLACK)
                 {
-                    printf("Delete Case 3\n");
+                    printf("Delete Case 3: Left Rotation and Recolor\n");
                     if (w->right != NULL) w->right->color = BLACK;
                     w->color = RED;
                     root = leftRotate(root, w);
                     w = xParent->left;
                 }
-                printf("Delete Case 4\n");
+                printf("Delete Case 4: Right Rotation and Recolor\n");
                 w->color = xParent->color;
                 xParent->color = BLACK;
                 if (w->left != NULL) w->left->color = BLACK;

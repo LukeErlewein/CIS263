@@ -33,6 +33,8 @@ def postorder(node):
         print(node.value, end=" ")
 
 # Part 3
+# determines if it is a BST by looking at the minimum and maximum node value so far on the branch. On the left branches the maximum node should be the parent of the left branch.
+# when looking at the right branch the minimum value should be the parent node of that branch.
 def isBST(node, min = float('-inf'), max = float('inf')):
     if node is None:
         return True
@@ -58,6 +60,7 @@ def findNode(root, val):
         return findNode(root.right, val)
 
 # Find successor
+# successor is the next highest possible value in the entire tree
 def findSuccessor(root, val):
     node = findNode(root, val)
     if node is None:
@@ -88,6 +91,7 @@ def validBSTsetup():
     nodes[30].right = nodes[35]; nodes[35].parent = nodes[30]
     return root
 
+# invalid BST because of it sets up 25 as the right child of 15.
 def invalidBSTSetup():
     nodes = {val: TreeNode(val) for val in [20, 10, 30, 5, 15, 25, 35, 12]}
     root = nodes[20]

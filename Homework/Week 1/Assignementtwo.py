@@ -13,23 +13,27 @@ def runTest(n, func):
     end = time.time()
     return end - start
 
+# O(n)
 def testA(n):
     someVariable = 1.0
     for i in range(n):
         someVariable = math.log(someVariable) + 3
 
+# O(n^2)
 def testB(n):
     someVariable = 1.0
     for i in range(n):
         for j in range(n):
             someVariable = math.log(someVariable) + 3
 
+# O(n^2)
 def testC(n):
     someVariable = 1.0
     for i in range(n):
         for j in range(i):
             someVariable = math.log(someVariable) + 3
 
+# O(n^2)
 def testD(n):
     someVariable = 1.0
     for i in range(n):
