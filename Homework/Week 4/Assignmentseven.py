@@ -1,3 +1,8 @@
+# Assignment 7: Greedy & Divide and Conquer
+# Student: Luke Erlewein
+# Professor: Dr. Denton Bobeldyk
+# Class: CIS 263 Summer 2025
+
 import random
 import time
 
